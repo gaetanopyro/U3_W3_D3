@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getJobsAction } from "../redux/action";
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
+
+  const dispatch = useDispatch();
 
   const params = useParams();
 
@@ -12,21 +16,22 @@ const CompanySearchResults = () => {
 
   useEffect(() => {
     getJobs();
+    dispatch(getJobsAction(baseEndpoint));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getJobs = async () => {
-    try {
-      const response = await fetch(baseEndpoint + params.company);
-      if (response.ok) {
-        const { data } = await response.json();
-        setJobs(data);
-      } else {
-        alert("Error fetching results");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const response = await fetch(baseEndpoint + params.company);
+    //   if (response.ok) {
+    //     const { data } = await response.json();
+    //     setJobs(data);
+    //   } else {
+    //     alert("Error fetching results");
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
