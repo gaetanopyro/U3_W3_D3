@@ -15,24 +15,24 @@ const CompanySearchResults = () => {
   const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
 
   useEffect(() => {
-    getJobs();
-    dispatch(getJobsAction(baseEndpoint));
+    // getJobs();
+    dispatch(getJobsAction(baseEndpoint, params));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getJobs = async () => {
-    // try {
-    //   const response = await fetch(baseEndpoint + params.company);
-    //   if (response.ok) {
-    //     const { data } = await response.json();
-    //     setJobs(data);
-    //   } else {
-    //     alert("Error fetching results");
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  };
+  // const getJobs = async () => {
+  //   // try {
+  //   //   const response = await fetch(baseEndpoint + params.company);
+  //   //   if (response.ok) {
+  //   //     const { data } = await response.json();
+  //   //     setJobs(data);
+  //   //   } else {
+  //   //     alert("Error fetching results");
+  //   //   }
+  //   // } catch (error) {
+  //   //   console.log(error);
+  //   // }
+  // };
 
   return (
     <Container>
